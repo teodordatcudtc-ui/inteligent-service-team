@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --navy-900: #0a1628;
+  --navy-800: #0d2847;
+  --navy-700: #12355a;
+  --slate-blue: #4a6a8a;
+  --slate-gray: #6b8aa8;
+  --slate-light: #8fa4bc;
+  --slate-pale: #c5d4e4;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply antialiased text-white;
+  background-color: var(--navy-800);
+}
+
+/* Custom selection */
+::selection {
+  background-color: var(--slate-blue);
+  color: white;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-2 outline-offset-2 outline-slate-light;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
