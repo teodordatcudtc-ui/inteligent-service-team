@@ -55,10 +55,10 @@ export default function Header() {
             </div>
           </div>
 
-          {/* Logo */}
+          {/* Logo - ascuns pe mobil (avem ACASĂ stânga) */}
           <Link
             href="/"
-            className="flex items-center gap-3 shrink-0"
+            className="hidden lg:flex items-center gap-3 shrink-0"
             aria-label="INTELIGENT SERVICE TEAM - Pagina principală"
           >
             <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-navy-700 border-2 border-slate-light flex items-center justify-center">
