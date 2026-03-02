@@ -28,42 +28,17 @@ export default function Header() {
         aria-label="Navigare principală"
       >
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 rounded-md text-white hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-slate-light"
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-            aria-label={mobileOpen ? 'Închide meniul' : 'Deschide meniul'}
-          >
-            <svg
-              className="h-6 w-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+          {/* Mobile: Acasă link stânga | Desktop: nav left */}
+          <div className="flex items-center gap-4">
+            <Link
+              href="/"
+              className={`lg:hidden text-sm font-medium uppercase tracking-wider ${
+                pathname === '/' ? 'text-slate-pale' : 'text-white hover:text-slate-pale'
+              }`}
             >
-              {mobileOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
-          </button>
-
-          {/* Desktop nav - left */}
-          <div className="hidden lg:flex items-center gap-6">
+              ACASĂ
+            </Link>
+            <div className="hidden lg:flex items-center gap-6">
             {navLinks.slice(0, 3).map((link) => (
               <Link
                 key={link.href}
@@ -77,6 +52,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
+            </div>
           </div>
 
           {/* Logo */}
@@ -110,8 +86,39 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Spacer for mobile */}
-          <div className="w-10 lg:hidden" aria-hidden="true" />
+          {/* Mobile: hamburger dreapta */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="lg:hidden p-2 rounded-md text-white hover:bg-navy-700 focus:outline-none focus:ring-2 focus:ring-slate-light"
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+            aria-label={mobileOpen ? 'Închide meniul' : 'Deschide meniul'}
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              {mobileOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
         </div>
 
         {/* Mobile menu */}
